@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+
+<!-- Yeah man, no clue -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+<!-- JS files -->
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }</script>
+<script src="{% static 'login.js' %}"></script>
+
+<!-- CSS files -->
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+
+
+</head>
+<body>
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<h1>Log in</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form action="{% url 'login' %}" method="POST">
+					{% csrf_token %}
+					<input class="text" type="text" name="username" id="username" placeholder="Name" required="" onblur="checkEmail(this)">
+                    <div class="form-alert" id="emailalert" role="alert">
+  		             </div>
+					<input class="text" type="password" name="password" id="password" placeholder="Password" required="" onkeyup="checkPassword(this)">
+                    <div class="form-alert" id="passwordalert" role="alert">
+  		             </div>
+					<div class="wthree-text">
+				  <div class="clear"> </div>
+              </div>
+					<input type="submit" value="Login" id="loginbtn">
+					{% if error %}
+						{{ error }}
+					{% endif %}
+                    <div class="form-alert" id="loginalert" role="alert">
+                    </div>
+				</form>
+				<p>Don't have an Account? <a href="{% url 'signup' %}"> SignUp Now!</a></p>
+			</div>
+		</div>
+		<!-- copyright -->
+		<div class="colorlibcopy-agile">
+			<p>© CouponsYAYYY. All rights reserved</p>
+		</div>
+		<!-- //copyright -->
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<!-- //main -->
+</body>
+</html>

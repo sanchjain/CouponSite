@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CouponsYAYYY</title>
+
+    <!--    Materialize CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
+
+</head>
+<body>
+
+{% extends "navbar.html" %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+
+<div class="container">
+    <div class="col s12 m6 l4">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">{{ object.coupon_title }}</span>
+                    <h6>Valid till {{ object.coupon_validity }}</h6>
+                    <br>
+                    <p>{{ object.coupon_summary }}</p>
+                    <br>
+                    <a href="#" class="card-link" style="font-size: 16px; color: green;">{{ object.coupon_user }}</a>
+                </div>
+                <div class="card-action">
+                    {% if request.user.is_authenticated %}
+                    <a href="#" class="card-link">{{ object.coupon_code }}</a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="card-link" style="color: red;">Login to view code!!!</a>
+                    {% endif %}
+                    <a value="hi" id="copybtn" onclick="Copy();">Copy Link!</a>
+                </div>
+            </div>
+    </div>
+</div>
+
+
+</body>
+</html>
+{% endblock %}

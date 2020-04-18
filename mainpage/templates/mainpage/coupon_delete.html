@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CouponsYAYYY</title>
+
+    <!--    Materialize CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
+
+</head>
+<body>
+
+{% extends "navbar.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style_homepage.css' %}">
+
+
+<form action='.' method='POST'>{% csrf_token %}
+    <h5>Do you want to delete the product "{{ object.coupon_title }}"?</h5>
+    <p><input type='submit' value='Yes' />  <a href='../'>Cancel</a></p>
+</form>
+
+</body>
+</html>
+{% endblock %}

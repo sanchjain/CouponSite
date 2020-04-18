@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>CouponYAYYY -  Signup</title>
+
+
+<!-- No clue m8 -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!-- CSS files -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+
+<!-- JS files -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="{% static 'nextbtn.js' %}"></script>
+
+
+
+</head>
+<!-- main -->
+<body>
+	<div class="main-w3layouts wrapper">
+		<h1>Sign Up</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+        		<!-- Form -->
+				<form>
+		          <!-- name -->
+				<input type="button" value="Client" id="clientbtn" onclick="onClientButtonClick();">
+				<input type="button" value="Customer" id="customerbtn" onclick="onCustomerButtonClick();">
+		          <input class="text" id="name" type="text" name="name" placeholder="Name" required onblur="checkUsername(this);">
+		          <div class="form-alert" id="namealert" role="alert">
+		          </div>
+		          <!-- email -->
+		          <input class="text" id="email" type="email" name="email" placeholder="Email" required onblur="validateEmail(this);">
+		          <div class="form-alert" id="emailalert" role="alert">
+		          </div>
+		          <!-- password -->
+		          <input class="text" id="pwd1" type="password" name="pwd1" placeholder="Password" required onchange="checkPassword(this);">
+		          <div class="form-alert" id="passwordalert" role="alert">
+		          </div>
+		          <!-- confirm password -->
+		          <input class="text" id="pwd2" type="password" name="pwd2" placeholder="Confirm Password" required onkeyup="confirmPassword(this);">
+		          <div class="form-alert" id="confirmalert" role="alert">
+		          </div>
+		          <!-- OTP -->
+          		<!-- checkbox -->
+				<div class="wthree-text" id="checkbox">
+	            <label class="anim">
+	              <input type="checkbox" class="checkbox" required="" id="terms" onclick="validateCheckBox();">
+	              <span>I Agree To The Terms & Conditions</span>
+	            </label>
+				<div class="clear"> </div>
+				</div>
+          		<!-- submit -->
+				<input type="button" value="Register" id="registerbtn" onclick="onRegisterButtonClick();">
+
+				</form>
+
+				<p>Have an Account? <a href="login.html"> Login Now!</a></p>
+			</div>
+		</div>
+		<!-- copyright -->
+		<div class="colorlibcopy-agile">
+			<p>© CouponsYAYYY. All rights reserved</p>
+		</div>
+		<!-- bubbles -->
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>

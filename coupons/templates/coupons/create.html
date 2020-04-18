@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create!</title>
+
+<!-- Yeah man, no clue -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+<!-- JS files -->
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }</script>
+<!-- CSS files -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+
+</head>
+<body style="background: #B4DAF0 !important;">
+{% extends "navbar.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<h1>Create a Coupon</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					<input class="text" type="text" name="title" id="title" placeholder="Coupon Title" required="">
+                    <div class="form-alert" id="titlealert" role="alert">
+  		             </div>
+					<input class="textbox" type="text" name="summary" id="summary" placeholder="Summary" required="">
+                    <div class="form-alert" id="summaryalert" role="alert">
+  		             </div>
+                    Expiration Date:
+                    <input class="text" type="date" name="validity" id="validity" placeholder="Validity" required="">
+                    <div class="form-alert" id="validityalert" role="alert">
+  		             </div>
+                    <br>
+                    <br>
+                    <input class="text" type="text" name="code" id="code" placeholder="Coupon Code" required="">
+                    <div class="form-alert" id="codealert" role="alert">
+  		             </div>
+					<div class="wthree-text">
+				  <div class="clear"> </div>
+              </div>
+					<input style="background: #B4DAF0;" type="submit" value="Create Coupon!" id="loginbtn">
+					{% if error %}
+						{{ error }}
+					{% endif %}
+                    <div class="form-alert" id="createalert" role="alert">
+                    </div>
+				</form>
+			</div>
+		</div>
+		<!-- copyright -->
+		<div class="colorlibcopy-agile">
+			<p>© CouponsYAYYY. All rights reserved</p>
+		</div>
+		<!-- //copyright -->
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<!-- //main -->
+</body>
+</html>
+{% endblock %}

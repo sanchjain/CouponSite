@@ -1,0 +1,26 @@
+
+<nav>
+    <div class="nav-wrapper teal lighten-3">
+      <a href="{% url 'homepage' %}" class="brand-logo">CouponsYAYYY</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+          {% if request.user.groups.all.0.name == "Company" %}
+          <li><a href="{% url 'mycoupons' %}">My Coupons</a></li>
+          <li><a href="{% url 'create' %}">Create Coupon</a></li>
+          {% endif %}
+          {% if user.is_authenticated %}
+          <li><a href="javascript: {document.getElementById('logout').submit()}">Log Out</a></li>
+          <form id="logout" method="POST" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <input type="hidden">
+          </form>
+          {% else %}
+          <li><a href="{% url 'signup' %}">Sign Up</a></li>
+          <li><a href="{% url 'login' %}">Log In</a></li>
+          {% endif %}
+      </ul>
+    </div>
+</nav>
+
+
+{% block content %}
+{% endblock %}

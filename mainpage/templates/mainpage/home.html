@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CouponsYAYYY</title>
+
+    <!--    Materialize CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
+
+</head>
+<script type="text/javascript">
+            function CopyUrl(element)
+            {
+                M.toast({html: 'Copied Sharable Link!'});
+                var text = location.host + element.id;
+                if (window.clipboardData && window.clipboardData.setData) {
+                    return clipboardData.setData("Text", text);
+                }
+                else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
+                    var textarea = document.createElement("textarea");
+                    textarea.textContent = text;
+                    textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in Microsoft Edge.
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    try {
+                        return document.execCommand("copy");  // Security exception may be thrown by some browsers.
+                    }
+                    catch (ex) {
+                        console.warn("Copy to clipboard failed.", ex);
+                        return false;
+                    }
+                    finally {
+                        document.body.removeChild(textarea);
+                    }
+                }
+            }
+
+            function Copy(element)
+            {
+                M.toast({html: 'Copied Code!'});
+                var text = element.id;
+                if (window.clipboardData && window.clipboardData.setData) {
+                    return clipboardData.setData("Text", text);
+                }
+                else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
+                    var textarea = document.createElement("textarea");
+                    textarea.textContent = text;
+                    textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in Microsoft Edge.
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    try {
+                        return document.execCommand("copy");  // Security exception may be thrown by some browsers.
+                    }
+                    catch (ex) {
+                        console.warn("Copy to clipboard failed.", ex);
+                        return false;
+                    }
+                    finally {
+                        document.body.removeChild(textarea);
+                    }
+                }
+            }
+
+</script>
+<body>
+
+{% extends "navbar.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style_homepage.css' %}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+<form method="GET" action=" ">
+    <div class="input-group">
+        <input type="text" class="form-control" name="q" value="{{ request.GET.q }}" placeholder="Search for coupons">
+    </div>
+</form>
+
+
+<br>
+<br>
+<div class="container" style="width: 90%">
+    <div class="row">
+        {% for c in coupons.all %}
+        <div class="col s12 m6 l4">
+            <div class="card small">
+                <div class="card-content">
+                    <span class="card-title"><a href="{{ c.get_absolute_url }}">{{ c.coupon_title }}</a></span>
+                    <h6>Valid till {{ c.coupon_validity }}</h6>
+                    <br>
+                    <p>{{ c.coupon_summary }}</p>
+                    <br>
+                    <a href="#" class="card-link" style="font-size: 16px; color: green;">{{ c.coupon_user }}</a>
+                </div>
+                <div class="card-action">
+                    {% if request.user.is_authenticated %}
+                    <a id="{{ c.coupon_code }}" onclick="Copy(this);" class="card-link">{{ c.coupon_code }}</a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="card-link" style="color: red;">Login to view code!!!</a>
+                    {% endif %}
+                    <a id="{{ c.get_absolute_url }}" onclick="CopyUrl(this);">Copy Link!</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>
+{% endblock %}
