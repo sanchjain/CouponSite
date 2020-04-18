@@ -14,7 +14,7 @@ def create(request):
             coupon = Coupon()
             coupon.coupon_title = request.POST['title']
             coupon.coupon_summary = request.POST['summary']
-            coupon.coupon_validity = request.POST['validity']
+            coupon.new_coupon_validity = request.POST['validity']
             coupon.coupon_code = request.POST['code']
             coupon.coupon_pubdate = timezone.datetime.now()
             coupon.coupon_user = request.user

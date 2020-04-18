@@ -8,7 +8,7 @@ class Coupon(models.Model):
     coupon_title = models.CharField(max_length=100)
     coupon_summary = models.TextField(max_length=400)
     coupon_pubdate = models.DateTimeField(default=timezone.now)
-    coupon_validity = models.DateField(default = (timezone.now() + timezone.timedelta(days=1)))
+    new_coupon_validity = models.DateField(default = (timezone.now() + timezone.timedelta(days=1)))
     coupon_code = models.CharField(max_length=100, default = '-')
     coupon_user = models.ForeignKey(User, on_delete = models.CASCADE, null = True)
 
