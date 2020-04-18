@@ -25,7 +25,7 @@ SECRET_KEY = '8!a&(s#931vk!e(+n_vv4xtdx940=^&7*^x060d_gy6=150f2='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'https://enigmatic-beach-80069.herokuapp.com/']
 
 
 # Application definition
@@ -82,6 +82,11 @@ DATABASES = {
     }
 }
 
+import dj_database_url
+
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -129,4 +134,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'mainpage/static')
+]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
 ]
