@@ -1,13 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.utils import timezone
 
 # Create your models here.
 class Coupon(models.Model):
     coupon_title = models.CharField(max_length=100)
     coupon_summary = models.TextField(max_length=400)
-    coupon_pubdate = models.DateTimeField()
-    coupon_validity = models.DateField()
+    coupon_pubdate = models.DateTimeField(default=timezone.now)
+    coupon_validity = models.DateField(default = (timezone.now() + timezone.timedelta(days=1)))
     coupon_code = models.CharField(max_length=100, default = '-')
     coupon_user = models.ForeignKey(User, on_delete = models.CASCADE, null = True)
 
