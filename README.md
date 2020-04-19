@@ -1,4 +1,4 @@
-Find the live version of the site here : https://couponsyayyy.herokuapp.com/
+Find the live version of the site here : http://34.67.108.253:8000/
 
 <img width="1280" alt="Screen Shot 2020-04-18 at 11 37 27 PM" src="https://user-images.githubusercontent.com/54800651/79653188-86eb4380-81cf-11ea-8975-23f6d68bbed2.png">
 
