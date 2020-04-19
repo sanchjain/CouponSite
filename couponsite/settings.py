@@ -25,7 +25,7 @@ SECRET_KEY = '8!a&(s#931vk!e(+n_vv4xtdx940=^&7*^x060d_gy6=150f2='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'https://enigmatic-beach-80069.herokuapp.com/']
+ALLOWED_HOSTS = ['localhost', 'https://enigmatic-beach-80069.herokuapp.com/', "34.67.108.253"]
 
 
 # Application definition
