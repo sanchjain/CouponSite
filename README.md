@@ -16,5 +16,5 @@ A user can view coupon codes and share them with links. They cannot can create c
 
 A company can create coupons and view thier coupons. They can also delete thier coupons. They get all user and company previliges.
 
-There is a common log in page where a company can select the option of acting as a company.
+There is a common login page where a company can select the option of acting as a company. Users are restricted from entering company urls with the help of decorators and hiding of links.
 
