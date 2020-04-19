@@ -5,10 +5,9 @@ Find the live version of the site here : https://couponsyayyy.herokuapp.com/
 To run this site locally:
 
 1. Download the git repo
-2. Go to 'mysite' directory
-3. Run 'python3 -m venv myvenv' in terminal/command line
-4. Run 'pip install -r requirements.txt' in terminal/command line
-5. Run 'python3 manage.py runserver' and go to localhost:8000 or 127.0.0.1:8000 to view the site.
+2. Run 'python3 -m venv myvenv' in terminal/command line
+3. Run 'pip install -r requirements.txt' in terminal/command line
+4. Run 'python3 manage.py runserver' and go to localhost:8000 or 127.0.0.1:8000 to view the site.
 
 
 The site is simple coupon site. People can login as a User or Company.
